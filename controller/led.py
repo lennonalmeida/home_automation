@@ -1,8 +1,10 @@
-from gpiozero import LED
 import time
+import MySQLdb
 
-led = LED(18)
-
-led.on()
-time.sleep(5)
-led.off()
+con = MySQLdb.connect(host="192.168.0.8", user="root", passwd="mysql", db="pi")
+con.select_db('banco de dados')
+con = MySQLdb.connect(user='root', db='pi')
+cursor = con.cursor()
+cursor.execute("INSERT INTO app2teste VALUES (%s)"%('OFF'))
+con.commit()
+rs = cursor.fetchall() # busca todas as linhas ou;
