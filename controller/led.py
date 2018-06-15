@@ -1,10 +1,10 @@
+import RPi.GPIO as GPIO
 import time
-import MySQLdb
-
-con = MySQLdb.connect(host="192.168.0.8", user="root", passwd="mysql", db="pi")
-con.select_db('banco de dados')
-con = MySQLdb.connect(user='root', db='pi')
-cursor = con.cursor()
-cursor.execute("INSERT INTO app2teste VALUES (%s)"%('OFF'))
-con.commit()
-rs = cursor.fetchall() # busca todas as linhas ou;
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+GPIO.setup(18,GPIO.OUT)
+print "LED on"
+GPIO.output(18,GPIO.HIGH)
+time.sleep(1)
+print "LED off"
+GPIO.output(18,GPIO.LOW)

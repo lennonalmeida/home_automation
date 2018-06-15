@@ -12,18 +12,22 @@ create table app2state(
 
 #add a new appliance
 insert into app2state
-(id, state)
+(state)
 values
-('2', 'OFF');
+('OFF');
 insert into app2state
-(id, state)
+(state)
 values
-('1', 'ON');
+('ON');
 
 #change state
 update app2state
-set state='ON'
+set state='OFF'
 where id=2;
 
+SELECT state
+FROM app2state
+where state
+BETWEEN 1 AND 2;
 #show table
 select * from app2state;
