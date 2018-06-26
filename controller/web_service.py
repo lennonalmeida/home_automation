@@ -15,5 +15,4 @@ def insert(state):
     cnx.commit()
     cursor.close()
     cnx.close()
-
 run(host='192.168.0.8', port=8080, debug=True)
